@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-filemanager",
+  "version": "1.0.0",
+  "description": "file manager on Node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "author": "Dmitry Petrochenkov",
+  "license": "ISC"
+}
