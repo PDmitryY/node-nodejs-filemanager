@@ -2,10 +2,13 @@ import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import { homedir } from 'node:os';
 import { list } from './modules/list.js';
+import { create } from './modules/create.js'
+import { goUp } from './modules/goUp.js'
 
 const rl = readline.createInterface({ input, output });
 
-let userName = process.argv.slice(2).reduce((acc, val, i, arr)=>{
+const args = process.argv.slice(2);
+let userName = args.reduce((acc, val, i, arr)=>{
   if(val.startsWith('--username=')){
       acc.push(`${val.slice(11)}`);
   }
@@ -24,19 +27,19 @@ const currentDir = async () => {
 currentDir()
 
 const commandsMap = {
-  // cat: readFile,
-  // add: addFile,
-  // rn: renameFile,
-  // rm: removeFile,
-  // os: handleOs,
-  // cp: cpFile,
-  // mv: moveFile,
-  // hash: handleHash,
-  // compress: handleCompress,
-  // decompress: handleDecompress,
+  // cat: ,
+  add: create,
+  // rn: ,
+  // rm: ,
+  // os: ,
+  // cp: ,
+  // mv: ,
+  // hash: ,
+  // compress: ,
+  // decompress: ,
   ls: list,
-  // up: handleUp,
-  // cd: handleCd,
+  up: goUp,
+  // cd: ,
   ".exit": () => {
     rl.close(),
     process.exit(0);
@@ -44,11 +47,11 @@ const commandsMap = {
 };
 
 export const lineParser = async (str) => {
-  const input = str.trim();
+  const [input, ...args] = str.trim().split(' ');
   // console.log("input", input);
   Object.entries(commandsMap).map((entr)=>{if(input == entr[0]) {
     // console.log("entr", entr);
-    entr[1]();
+    entr[1](args);
   }})
 };
 
