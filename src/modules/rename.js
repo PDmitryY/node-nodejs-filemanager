@@ -1,5 +1,4 @@
 import { rename as giveNewName } from 'fs/promises';
-import path from 'path';
 
 export const renameFile = async (args) => {
     try {

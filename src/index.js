@@ -7,6 +7,7 @@ import { goUp } from './modules/goUp.js'
 import { changeDir } from './modules/changeDir.js';
 import { readFile } from './modules/read.js';
 import { renameFile } from './modules/rename.js';
+import { remove } from './modules/remove.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -33,7 +34,7 @@ const commandsMap = {
 	cat: readFile,
 	add: create,
 	rn: renameFile,
-	// rm: ,
+	rm: remove,
 	// os: ,
 	// cp: ,
 	// mv: ,
