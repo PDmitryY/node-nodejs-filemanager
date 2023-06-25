@@ -6,6 +6,7 @@ import { create } from './modules/create.js'
 import { goUp } from './modules/goUp.js'
 import { changeDir } from './modules/changeDir.js';
 import { readFile } from './modules/read.js';
+import { renameFile } from './modules/rename.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -31,7 +32,7 @@ currentDir();
 const commandsMap = {
 	cat: readFile,
 	add: create,
-	// rn: ,
+	rn: renameFile,
 	// rm: ,
 	// os: ,
 	// cp: ,
