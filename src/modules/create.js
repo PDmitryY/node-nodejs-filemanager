@@ -1,11 +1,10 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
-
 export const create = async (args) => {
-    console.log('args', args);
+    // console.log('args', args);
     if(args) {
-        const filePath = path.join(process.cwd(), args.toString())
+        const filePath = path.join(process.cwd(), args.join(' '))
         // console.log(filePath);
         try {
             await writeFile(filePath,'', {flag:'wx'})
@@ -14,5 +13,3 @@ export const create = async (args) => {
         }
     };
 };
-
-create();

@@ -12,5 +12,3 @@ export const list = async () => {
         throw new Error('Operation failed')
     }
 };
-
-await list();
