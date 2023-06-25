@@ -9,6 +9,6 @@ export const list = async () => {
         .map((item) => ({name: item.name, type: "file"}));
         console.table([...dirs, ...files]);
     } catch (err) {
-        throw new Error('Operation failed')
+        throw new Error('Operation failed');
     }
 };

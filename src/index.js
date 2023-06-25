@@ -5,6 +5,7 @@ import { list } from './modules/list.js';
 import { create } from './modules/create.js'
 import { goUp } from './modules/goUp.js'
 import { changeDir } from './modules/changeDir.js';
+import { readFile } from './modules/read.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -28,7 +29,7 @@ const currentDir = async () => {
 currentDir();
 
 const commandsMap = {
-	// cat: ,
+	cat: readFile,
 	add: create,
 	// rn: ,
 	// rm: ,
