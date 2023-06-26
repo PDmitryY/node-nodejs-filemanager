@@ -9,6 +9,7 @@ import { readFile } from './modules/read.js';
 import { renameFile } from './modules/rename.js';
 import { remove } from './modules/remove.js';
 import { copy } from './modules/copy.js';
+import { move } from './modules/move.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -39,7 +40,7 @@ const commands = {
 	add: create,
 	rn: renameFile,
 	cp: copy,
-	// mv: ,
+	mv: move,
 	rm: remove,
 	// os: ,
 	// hash: ,
