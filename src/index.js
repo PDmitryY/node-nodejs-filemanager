@@ -58,10 +58,8 @@ const commands = {
 
 export const lineParser = async (str) => {
 	const [input, ...args] = str.trim().split(' ');
-	// console.log("input", input);
 	if(commands.hasOwnProperty(input)){
 		Object.entries(commands).map((entry)=>{if(input == entry[0]) {
-		// console.log("entr", entr);
 		entry[1](args);
 		}});
 	} else {
