@@ -8,6 +8,7 @@ import { changeDir } from './modules/changeDir.js';
 import { readFile } from './modules/read.js';
 import { renameFile } from './modules/rename.js';
 import { remove } from './modules/remove.js';
+import { copy } from './modules/copy.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -30,20 +31,20 @@ const currentDir = async () => {
 };
 currentDir();
 
-const commandsMap = {
+const commands = {
+	up: goUp,
+	cd: changeDir,
+	ls: list,
 	cat: readFile,
 	add: create,
 	rn: renameFile,
+	cp: copy,
+	// mv: ,
 	rm: remove,
 	// os: ,
-	// cp: ,
-	// mv: ,
 	// hash: ,
 	// compress: ,
 	// decompress: ,
-	ls: list,
-	up: goUp,
-	cd: changeDir,
 	".exit": () => {
 		rl.close(),
 		process.exit(0);
@@ -53,10 +54,10 @@ const commandsMap = {
 export const lineParser = async (str) => {
 	const [input, ...args] = str.trim().split(' ');
 	// console.log("input", input);
-	if(commandsMap.hasOwnProperty(input)){
-		Object.entries(commandsMap).map((entr)=>{if(input == entr[0]) {
+	if(commands.hasOwnProperty(input)){
+		Object.entries(commands).map((entry)=>{if(input == entry[0]) {
 		// console.log("entr", entr);
-		entr[1](args);
+		entry[1](args);
 		}});
 	} else {
 		console.log("Operation failed\r\n");
