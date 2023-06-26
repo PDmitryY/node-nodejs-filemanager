@@ -10,6 +10,7 @@ import { renameFile } from './modules/rename.js';
 import { remove } from './modules/remove.js';
 import { copy } from './modules/copy.js';
 import { move } from './modules/move.js';
+import { osCommands } from './modules/os.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -42,7 +43,7 @@ const commands = {
 	cp: copy,
 	mv: move,
 	rm: remove,
-	// os: ,
+	os: osCommands,
 	// hash: ,
 	// compress: ,
 	// decompress: ,
