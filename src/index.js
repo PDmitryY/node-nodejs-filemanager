@@ -11,6 +11,7 @@ import { remove } from './modules/remove.js';
 import { copy } from './modules/copy.js';
 import { move } from './modules/move.js';
 import { osCommands } from './modules/os.js';
+import { calculateHash } from './modules/calcHash.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -44,7 +45,7 @@ const commands = {
 	mv: move,
 	rm: remove,
 	os: osCommands,
-	// hash: ,
+	hash: calculateHash,
 	// compress: ,
 	// decompress: ,
 	".exit": () => {
